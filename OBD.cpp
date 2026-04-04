@@ -494,7 +494,7 @@ bool readVoltage(SerialPort& port, double& value) {
 
 void printSupportedPidsBlock(const std::vector<int>& data, int basePid) {
     if (data.size() < 4) {
-        std::cout << "Neplatna odpoved.\n";
+        std::cout << "Invalid response.\n";
         return;
     }
 
@@ -504,7 +504,7 @@ void printSupportedPidsBlock(const std::vector<int>& data, int basePid) {
     mask |= ((unsigned int)data[2] << 8);
     mask |= (unsigned int)data[3];
 
-    std::cout << "Podporovane PIDy v bloku 0x" << std::hex << std::uppercase << basePid
+    std::cout << "Supported PIDs in block 0x" << std::hex << std::uppercase << basePid
               << "-0x" << (basePid + 0x1F) << std::dec << ":\n";
 
     for (int bit = 0; bit < 32; ++bit) {
@@ -602,11 +602,11 @@ void readDtcCodes(SerialPort& port) {
             }
 
             if (codes.empty()) {
-                std::cout << "Zadne ulozene DTC chyby.\n";
+                std::cout << "No saved DTC errors.\n";
                 return;
             }
 
-            std::cout << "Ulozene DTC chyby:\n";
+            std::cout << "Saved DTC errors:\n";
             for (size_t k = 0; k < codes.size(); ++k) {
                 std::cout << "  " << codes[k] << "\n";
             }
@@ -616,12 +616,12 @@ void readDtcCodes(SerialPort& port) {
     }
 
     if (!found) {
-        std::cout << "Nepodarilo se precist DTC nebo auto vratilo NO DATA.\n";
+        std::cout << "Error reading or no data read.\n";
     }
 }
 
 void liveDashboard(SerialPort& port) {
-    std::cout << "Live dashboard bezi. Ukoncis klavesou Q.\n\n";
+    std::cout << "Live dashboard is running. End with key Q.\n\n";
 
     while (true) {
         if (GetAsyncKeyState('Q') & 0x8000) {
@@ -645,7 +645,7 @@ void liveDashboard(SerialPort& port) {
 
         system("cls");
         std::cout << "===== LIVE DASHBOARD =====\n";
-        std::cout << "Stiskni Q pro ukonceni\n\n";
+        std::cout << "Press Q to end\n\n";
 
         if (okRpm) {
             std::cout << "RPM:              " << rpm << "\n";
@@ -655,24 +655,24 @@ void liveDashboard(SerialPort& port) {
         }
 
         if (okSpeed) {
-            std::cout << "Rychlost:         " << speed << " km/h\n";
+            std::cout << "Speed:         " << speed << " km/h\n";
         }
         else {
-            std::cout << "Rychlost:         N/A\n";
+            std::cout << "Speed:         N/A\n";
         }
 
         if (okCoolant) {
-            std::cout << "Teplota motoru:   " << coolant << " C\n";
+            std::cout << "Engine temp:   " << coolant << " C\n";
         }
         else {
-            std::cout << "Teplota motoru:   N/A\n";
+            std::cout << "Engine temp:   N/A\n";
         }
 
         if (okIat) {
-            std::cout << "Teplota sani:     " << iat << " C\n";
+            std::cout << "Suction temp:     " << iat << " C\n";
         }
         else {
-            std::cout << "Teplota sani:     N/A\n";
+            std::cout << "Suction temp:     N/A\n";
         }
 
         if (okThrottle) {
@@ -696,17 +696,17 @@ void liveDashboard(SerialPort& port) {
 void printMenu() {
     std::cout << "\n===== OBD MENU =====\n";
     std::cout << "1  - RPM\n";
-    std::cout << "2  - Rychlost\n";
-    std::cout << "3  - Teplota chladici kapaliny\n";
-    std::cout << "4  - Teplota nasavaneho vzduchu\n";
-    std::cout << "5  - Zatizeni motoru\n";
-    std::cout << "6  - Poloha plynu\n";
+    std::cout << "2  - Speed\n";
+    std::cout << "3  - Cooling liquid temp\n";
+    std::cout << "4  - Intake air temp\n";
+    std::cout << "5  - Engine load\n";
+    std::cout << "6  - Throttle position\n";
     std::cout << "7  - MAF\n";
-    std::cout << "8  - Napeti baterie / adapteru\n";
-    std::cout << "9  - DTC chyby\n";
-    std::cout << "10 - Podporovane PIDy\n";
+    std::cout << "8  - Battery voltage / adapter voltage\n";
+    std::cout << "9  - DTC errors\n";
+    std::cout << "10 - Supported PIDs\n";
     std::cout << "11 - Live dashboard\n";
-    std::cout << "0  - Konec\n";
+    std::cout << "0  - End\n";
     std::cout << "Volba: ";
 }
 
@@ -715,19 +715,19 @@ int main() {
         SerialPort port;
         std::string foundPortName;
 
-        std::cout << "Hledam ELM327 na COM portech...\n";
+        std::cout << "Searching ELM327 on COM ports...\n";
 
         if (!findElm327Port(port, foundPortName)) {
-            std::cerr << "ELM327 se nepodarilo najit.\n";
-            std::cerr << "Zkontroluj:\n";
-            std::cerr << "1. ze je adapter pripojeny\n";
-            std::cerr << "2. ze je videt ve Spravci zarizeni\n";
-            std::cerr << "3. ze je zapnute zapalovani\n";
+            std::cerr << "ELM327 not found.\n";
+            std::cerr << "Check:\n";
+            std::cerr << "1. Adapter is connected\n";
+            std::cerr << "2. is shown in device manager\n";
+            std::cerr << "3. ignition is turned on\n";
             return 1;
         }
 
-        std::cout << "Nalezen ELM327 na portu: " << foundPortName << "\n";
-        std::cout << "Inicializace hotova.\n";
+        std::cout << "Found ELM327 on port: " << foundPortName << "\n";
+        std::cout << "Init complete.\n";
 
         while (true) {
             printMenu();
@@ -738,7 +738,7 @@ int main() {
             if (!std::cin) {
                 std::cin.clear();
                 std::cin.ignore(10000, '\n');
-                std::cout << "Neplatny vstup.\n";
+                std::cout << "Invlalid value.\n";
                 continue;
             }
 
@@ -751,52 +751,52 @@ int main() {
                     std::cout << "RPM: " << rpm << "\n";
                 }
                 else {
-                    std::cout << "RPM se nepodarilo precist.\n";
+                    std::cout << "Error reading RPM.\n";
                 }
             }
             else if (volba == 2) {
                 int speed = 0;
                 if (readSpeed(port, speed)) {
-                    std::cout << "Rychlost: " << speed << " km/h\n";
+                    std::cout << "Speed: " << speed << " km/h\n";
                 }
                 else {
-                    std::cout << "Rychlost se nepodarilo precist.\n";
+                    std::cout << "Error reading speed.\n";
                 }
             }
             else if (volba == 3) {
                 int temp = 0;
                 if (readCoolantTemp(port, temp)) {
-                    std::cout << "Teplota chladici kapaliny: " << temp << " C\n";
+                    std::cout << "Cooling liquid temperature: " << temp << " C\n";
                 }
                 else {
-                    std::cout << "Teplotu se nepodarilo precist.\n";
+                    std::cout << "Error reading cooling liquid temperature.\n";
                 }
             }
             else if (volba == 4) {
                 int temp = 0;
                 if (readIntakeAirTemp(port, temp)) {
-                    std::cout << "Teplota nasavaneho vzduchu: " << temp << " C\n";
+                    std::cout << "Intake air temp: " << temp << " C\n";
                 }
                 else {
-                    std::cout << "Teplotu nasavaneho vzduchu se nepodarilo precist.\n";
+                    std::cout << "Error reading intake air temperature.\n";
                 }
             }
             else if (volba == 5) {
                 double load = 0.0;
                 if (readEngineLoad(port, load)) {
-                    std::cout << "Zatizeni motoru: " << load << " %\n";
+                    std::cout << "Engine load: " << load << " %\n";
                 }
                 else {
-                    std::cout << "Zatizeni motoru se nepodarilo precist.\n";
+                    std::cout << "Error reading engine load.\n";
                 }
             }
             else if (volba == 6) {
                 double throttle = 0.0;
                 if (readThrottlePosition(port, throttle)) {
-                    std::cout << "Poloha plynu: " << throttle << " %\n";
+                    std::cout << "Throttle position: " << throttle << " %\n";
                 }
                 else {
-                    std::cout << "Polohu plynu se nepodarilo precist.\n";
+                    std::cout << "Error reading throttle position.\n";
                 }
             }
             else if (volba == 7) {
@@ -805,16 +805,16 @@ int main() {
                     std::cout << "MAF: " << maf << " g/s\n";
                 }
                 else {
-                    std::cout << "MAF se nepodarilo precist.\n";
+                    std::cout << "Error reading MAF.\n";
                 }
             }
             else if (volba == 8) {
                 double voltage = 0.0;
                 if (readVoltage(port, voltage)) {
-                    std::cout << "Napeti: " << voltage << " V\n";
+                    std::cout << "Voltage: " << voltage << " V\n";
                 }
                 else {
-                    std::cout << "Napeti se nepodarilo precist.\n";
+                    std::cout << "Error reading voltage.\n";
                 }
             }
             else if (volba == 9) {
@@ -827,14 +827,14 @@ int main() {
                 liveDashboard(port);
             }
             else {
-                std::cout << "Neplatna volba.\n";
+                std::cout << "Invalid value.\n";
             }
         }
 
-        std::cout << "Konec programu.\n";
+        std::cout << "Program finished.\n";
     }
     catch (const std::exception& e) {
-        std::cerr << "Chyba: " << e.what() << "\n";
+        std::cerr << "Error: " << e.what() << "\n";
         return 1;
     }
 
