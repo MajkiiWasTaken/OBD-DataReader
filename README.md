@@ -92,4 +92,3 @@ Press **Q** to exit dashboard
 • Bluetooth adapters can be unreliable  
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
