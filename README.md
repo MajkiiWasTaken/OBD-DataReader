@@ -1,4 +1,4 @@
-![Platform](https://img.shields.io/badge/platform-Windows%20%2F%20Linux-blue)
+![Platform](https://img.shields.io/badge/platform-Windows-blue)
 ![UI](https://img.shields.io/badge/UI-CMD%20%2F%20Shell-green)
 ![Language](https://img.shields.io/badge/Language-C%2B%2B-blue)
 ![Status](https://img.shields.io/badge/status-Release%2FPrototype-orange)
@@ -51,8 +51,8 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 
 ### Requirements
 
-• Windows / Linux
-• C++ compiler (Visual Studio recommended)  
+• Windows
+• C++ compiler (if self compilation is needed)
 • ELM327 adapter (USB preferred)  
 • OBD-II compatible vehicle  
 • Ignition ON  
