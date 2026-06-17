@@ -1,3 +1,8 @@
+![Platform](https://img.shields.io/badge/platform-Windows%20%2F%20Linux-blue)
+![UI](https://img.shields.io/badge/CMD%20%2F%20Bash)
+![Language](https://img.shields.io/badge/language-C++)
+![Status](https://img.shields.io/badge/status-Release/Prototype-orange)
+
 ```
  ██████╗ ██████╗ ██████╗     ██████╗  █████╗ ████████╗ █████╗ 
 ██╔═══██╗██╔══██╗██╔══██╗    ██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗
@@ -22,8 +27,6 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 
 ##  Features
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 • Auto-detect COM port  
 • Auto-init ELM327  
 • Read live vehicle data  
@@ -31,13 +34,9 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 • List supported PIDs  
 • Live dashboard mode  
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 ---
 
 ##  Supported Data
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 • RPM  
 • Speed  
@@ -49,13 +48,9 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 • Voltage  
 • DTC Codes  
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 ---
 
 ##  Requirements
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 • Windows  
 • C++ compiler (Visual Studio recommended)  
@@ -63,13 +58,9 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 • OBD-II compatible vehicle  
 • Ignition ON  
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 ---
 
 ##  Usage
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 1. Plug in ELM327  
 2. Turn ignition ON  
@@ -79,16 +70,10 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 
 Press **Q** to exit dashboard  
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 ---
 
 ## Notes
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 • Not all vehicles support all PIDs  
 • Cheap adapters may behave inconsistently  
 • Bluetooth adapters can be unreliable  
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
