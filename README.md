@@ -1,5 +1,5 @@
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
-![UI](https://img.shields.io/badge/UI-CMD%20%2F%20Shell-green)
+![UI](https://img.shields.io/badge/UI-CMD-green)
 ![Language](https://img.shields.io/badge/Language-C%2B%2B-blue)
 ![Status](https://img.shields.io/badge/status-Release%2FPrototype-orange)
 
