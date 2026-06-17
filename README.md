@@ -13,9 +13,8 @@
 ```
 # ELM327 OBD-II Console Tool
 
----
 
-##  Overview
+###  Overview
 
 Simple Windows C++ console application for reading vehicle diagnostics via an ELM327 adapter.
 
@@ -25,7 +24,7 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 
 ---
 
-##  Features
+###  Features
 
 • Auto-detect COM port  
 • Auto-init ELM327  
@@ -36,7 +35,7 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 
 ---
 
-##  Supported Data
+###  Supported Data
 
 • RPM  
 • Speed  
@@ -50,7 +49,7 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 
 ---
 
-##  Requirements
+### Requirements
 
 • Windows  
 • C++ compiler (Visual Studio recommended)  
@@ -60,7 +59,7 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 
 ---
 
-##  Usage
+### Usage
 
 1. Plug in ELM327  
 2. Turn ignition ON  
@@ -72,7 +71,7 @@ Press **Q** to exit dashboard
 
 ---
 
-## Notes
+### Notes
 
 • Not all vehicles support all PIDs  
 • Cheap adapters may behave inconsistently  
