@@ -1,7 +1,7 @@
 ![Platform](https://img.shields.io/badge/platform-Windows%20%2F%20Linux-blue)
-![UI](https://img.shields.io/badge/CMD%20%2F%20Shell)
-![Language](https://img.shields.io/badge/C%2B%2B)
-![Status](https://img.shields.io/badge/status-Release/Prototype-orange)
+![UI](https://img.shields.io/badge/UI-CMD%20%2F%20Shell-green)
+![Language](https://img.shields.io/badge/Language-C%2B%2B-blue)
+![Status](https://img.shields.io/badge/status-Release%2FPrototype-orange)
 
 ```
  ██████╗ ██████╗ ██████╗     ██████╗  █████╗ ████████╗ █████╗ 
