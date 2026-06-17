@@ -51,7 +51,7 @@ Simple Windows C++ console application for reading vehicle diagnostics via an EL
 
 ### Requirements
 
-• Windows  
+• Windows / Linux
 • C++ compiler (Visual Studio recommended)  
 • ELM327 adapter (USB preferred)  
 • OBD-II compatible vehicle  
